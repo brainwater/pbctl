@@ -1,6 +1,12 @@
 Pbctl::Application.routes.draw do
 
-  resources :stations, only: [:index, :show, :update]
+  get '/populate' => 'stations#populate'
+  
+  resources :stations do
+#match '/populate', to: 'stations#populate', via: get
+  end
+
+  #get '/stations/populate'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,13 @@
+<h1>Populate Stations</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+	<%= form_for(@station_list) do |f| %>
+
+	  <%= f.label :text %><br />
+	  <%= f.text_area :text %><br />
+
+	  <%= f.submit "Create Stations", class: "btn btn-large btn-primary" %>
+	<% end %>
+  </div>
+</div>
