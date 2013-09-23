@@ -1,5 +1,5 @@
 class StationsController < ApplicationController
-
+  include StationsHelper
   def show
     @station = Station.find(params[:id])
   end
@@ -19,6 +19,12 @@ class StationsController < ApplicationController
 
   def populate
     @station_list = ""
+  end
+
+  def fill
+    @station_list = params[:text]
+    puts @station_list
+    process_fill(@station_list)
   end
 
   private

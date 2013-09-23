@@ -1,10 +1,10 @@
 Pbctl::Application.routes.draw do
 
   get '/populate' => 'stations#populate'
+
+  post '/populate' => 'stations#fill'
   
-  resources :stations do
-#match '/populate', to: 'stations#populate', via: get
-  end
+  resources :stations
 
   #get '/stations/populate'
   # The priority is based upon order of creation: first created -> highest priority.
