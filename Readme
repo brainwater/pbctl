@@ -1,14 +1,20 @@
 Installation Instructions:
 
+Install pianobar
+
 Put desired pianobar config at ~/.config/pianobar/pbctl_config
 do not include fifo path or eventcmd
 PbCtl will automatically create a config file at ~/.config/pianobar/config
 that includes the contents of pbctl_config and the necessary fifo path and eventcommand
 that pbctl requires to function
 
+Bugs:
+Currently this only works on port 3000 since the eventcommand script
+is hardcoded to submit to localhost:3000/popfile
 
+When clicking any action on the header bar, it will redirect to the song list
 
-TODO:
+Done:
 
 Add header
 	links for play, skip, like, dislike, station list, song details
@@ -17,6 +23,9 @@ Add header
 
 Start pianobar on server start
 	  Use custom config for eventscript and fifo
+
+TODO:
+
 
 Put onto raspberry pi
 	Add info in readme about what needs to be installed on the raspberry pi
