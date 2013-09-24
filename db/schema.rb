@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130924011730) do
+ActiveRecord::Schema.define(version: 20130924191033) do
 
   create_table "songs", force: true do |t|
     t.string   "title"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20130924011730) do
     t.datetime "updated_at"
   end
 
-  add_index "stations", ["index"], name: "index_stations_on_index", unique: true
   add_index "stations", ["name"], name: "index_stations_on_name", unique: true
 
 end

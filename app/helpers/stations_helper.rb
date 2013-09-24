@@ -30,9 +30,9 @@ module StationsHelper
         current_song.update_attributes(rating: block[/rating=([0-9]+)/,1])
       end
     end
-    if stationarray.length > 0
-      Station.delete_all
-    end
+    #if stationarray.length > 0
+    #  Station.delete_all
+    #end
     # Use transaction to improve performance about 10 times
     ActiveRecord::Base.transaction do
       stationarray.length.times do |i|
