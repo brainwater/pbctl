@@ -39,8 +39,13 @@ class StationsController < ApplicationController
   def fillfile
     uploaded_file = params[:file]
     file_content = uploaded_file.read
-    puts file_content
+    # puts file_content
+    t1 = Time.now
     process_fill(file_content)
+    t2 = Time.now
+    te = t2 - t1
+    puts "PROCESS FILE TIME"
+    puts te
     redirect_to popfile_url
   end
 
