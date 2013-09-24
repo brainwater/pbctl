@@ -1,3 +1,13 @@
+Installation Instructions:
+
+Put desired pianobar config at ~/.config/pianobar/pbctl_config
+do not include fifo path or eventcmd
+PbCtl will automatically create a config file at ~/.config/pianobar/config
+that includes the contents of pbctl_config and the necessary fifo path and eventcommand
+that pbctl requires to function
+
+
+
 TODO:
 
 Add header

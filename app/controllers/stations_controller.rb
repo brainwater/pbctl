@@ -1,5 +1,6 @@
 class StationsController < ApplicationController
   include StationsHelper
+  include ApplicationHelper
 
   def index
     @stations = Station.paginate(page: params[:page])
@@ -51,7 +52,7 @@ class StationsController < ApplicationController
 
   def play
     @station = Station.find(params[:id])
-    open('/tmp/pbfifo', 'a') { |f| f.puts "s#{@station.index}" }
+    open(fifopath, 'a') { |f| f.puts "s#{@station.index}" }
     redirect_to stations_url
   end
 
