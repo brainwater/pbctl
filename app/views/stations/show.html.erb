@@ -1,2 +1,6 @@
-<%= @station.name %>, <%= @station.index %>
+<li>
+  <%= @station.name %>
+  <%= link_to "Play", play_url(@station), method: "post" %>
+</li>
+<%= @station.index %>
 
