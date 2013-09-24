@@ -1,5 +1,13 @@
 Pbctl::Application.routes.draw do
 
+  get  "song/pause"
+  get  "song/skip"
+  post "song/like"
+  post "song/dislike"
+  get  "song/details"
+  get  "song/art"
+
+
   get '/populate' => 'stations#populate'
 
   post '/populate' => 'stations#fill'

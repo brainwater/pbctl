@@ -12,6 +12,9 @@ Put onto raspberry pi
 	Add info in readme about what needs to be installed on the raspberry pi
 	(for arch linux installation, and for raspbian installation)
 
+Allow programmatic update of status and stations
+	  There is an authentication token issue when posting the status text via command line
+
 Later TODO:
 
 Add footer
