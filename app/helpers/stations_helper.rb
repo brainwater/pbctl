@@ -33,8 +33,10 @@ module StationsHelper
     if stationarray.length > 0
       Station.delete_all
     end
-    stationarray.length.times do |i|
-      Station.create(name: stationarray[i], index: i)
+    ActiveRecord::Base.transaction do
+      stationarray.length.times do |i|
+        Station.create(name: stationarray[i], index: i)
+      end
     end
   end
 
