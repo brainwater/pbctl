@@ -15,6 +15,10 @@ Pbctl::Application.routes.draw do
 
   post '/populate' => 'stations#fill'
 
+  get '/popfile' => 'stations#popfile'
+
+  post '/popfile' => 'stations#fillfile'
+
   resources :stations
 
   post 'stations/:id/play' => 'stations#play', as: :play

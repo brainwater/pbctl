@@ -32,6 +32,18 @@ class StationsController < ApplicationController
     process_fill(@station_list)
   end
 
+  def popfile
+    @station_file = ""
+  end
+
+  def fillfile
+    uploaded_file = params[:file]
+    file_content = uploaded_file.read
+    puts file_content
+    process_fill(file_content)
+    redirect_to popfile_url
+  end
+
   def play
     @station = Station.find(params[:id])
     open('/tmp/pbfifo', 'a') { |f| f.puts "s#{@station.index}" }
