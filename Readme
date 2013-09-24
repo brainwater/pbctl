@@ -1,0 +1,12 @@
+TODO:
+
+Add header
+	links for play, skip, like, dislike, station list, song details
+	show title, artist, album, and cover art
+	make sure to indicate if a song has been liked or disliked (I think the rating line will indicate this)
+
+
+Later TODO:
+
+Add footer
+	links for github page, readme, about, etc.

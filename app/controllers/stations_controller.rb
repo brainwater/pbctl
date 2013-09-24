@@ -35,7 +35,6 @@ class StationsController < ApplicationController
   def play
     @station = Station.find(params[:id])
     open('/tmp/pbfifo', 'a') { |f| f.puts "s#{@station.index}" }
-    index
     redirect_to stations_url
   end
 
