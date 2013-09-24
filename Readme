@@ -5,6 +5,12 @@ Add header
 	show title, artist, album, and cover art
 	make sure to indicate if a song has been liked or disliked (I think the rating line will indicate this)
 
+Start pianobar on server start
+	  Use custom config for eventscript and fifo
+
+Put onto raspberry pi
+	Add info in readme about what needs to be installed on the raspberry pi
+	(for arch linux installation, and for raspbian installation)
 
 Later TODO:
 
