@@ -7,6 +7,9 @@ Pbctl::Application.routes.draw do
   get  "song/details"
   get  "song/art"
 
+  #get "song" => 'song#index'
+  
+  resources :song, only: [:index]
 
   get '/populate' => 'stations#populate'
 

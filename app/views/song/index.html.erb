@@ -1,0 +1,10 @@
+<h1>Played Songs</h1>
+
+<ul class="songs">
+  <% @songs.each do |song| %>
+    <%= image_tag( song.art, :alt => "Album Art", :size => "24x24" ) %>
+	<%= link_to "#{song.title} on #{song.album} by #{song.artist}", song.detail%>
+	<br />
+  <% end %>
+</ul>
+
