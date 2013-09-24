@@ -33,6 +33,7 @@ module StationsHelper
     if stationarray.length > 0
       Station.delete_all
     end
+    # Use transaction to improve performance about 10 times
     ActiveRecord::Base.transaction do
       stationarray.length.times do |i|
         Station.create(name: stationarray[i], index: i)
