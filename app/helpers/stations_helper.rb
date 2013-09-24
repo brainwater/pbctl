@@ -33,6 +33,8 @@ module StationsHelper
     end
     if !newsong.title.empty? && ( newsong.title != lastsong.title || newsong.artist != lastsong.artist || newsong.album != lastsong.album )
       newsong.save
+    else
+      lastsong.update_attributes(rating: newsong.rating)
     end
     #if stationarray.length > 0
     #  Station.delete_all

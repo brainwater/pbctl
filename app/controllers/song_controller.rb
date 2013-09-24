@@ -2,8 +2,7 @@ class SongController < ApplicationController
   include StationsHelper
 
   def index
-    @songs = Song.paginate(page: params[:page])
-    puts "blarg"
+    @song = Song.paginate(page: params[:page], :order => 'created_at DESC')
   end
   
   def pause
