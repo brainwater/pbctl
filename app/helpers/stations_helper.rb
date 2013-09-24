@@ -1,8 +1,14 @@
 module StationsHelper
+  include ApplicationHelper
 
   def current_song
     Song.last
   end
+
+  def cat_control_str(str)
+    open(fifopath, 'a') { |f| f.puts str }
+  end
+
 
   def process_fill(text)
     stationarray = []
@@ -36,15 +42,20 @@ module StationsHelper
     else
       lastsong.update_attributes(rating: newsong.rating)
     end
+    if stationarray.length > 0 && stationarray.length != Station.all.length
+      Station.delete_all
+      ActiveRecord::Base.transaction do
+        stationarray.length.times do |i|
+          Station.create(name: stationarray[i], index: i)
+        end
+      end
+    end
+      
+      
     #if stationarray.length > 0
     #  Station.delete_all
     #end
     # Use transaction to improve performance about 10 times
-    ActiveRecord::Base.transaction do
-      stationarray.length.times do |i|
-        Station.create(name: stationarray[i], index: i)
-      end
-    end
   end
 
 end

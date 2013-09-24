@@ -6,19 +6,33 @@ class SongController < ApplicationController
   end
   
   def pause
-    redirect_to song_url
+    cat_control_str('p')
+    redirect_to song_index_url
   end
 
   def skip
-    redirect_to song_url
+    cat_control_str('n')
+    redirect_to song_index_url
   end
 
   def like
-    redirect_to song_url
+    cat_control_str('+')
+    redirect_to song_index_url
   end
 
   def dislike
-    redirect_to song_url
+    cat_control_str('-')
+    redirect_to song_index_url
+  end
+
+  def volup
+    cat_control_str(')')
+    redirect_to song_index_url
+  end
+  
+  def voldown
+    cat_control_str('(')
+    redirect_to song_index_url
   end
 
   def details

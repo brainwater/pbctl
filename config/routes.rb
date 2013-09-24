@@ -1,13 +1,17 @@
 Pbctl::Application.routes.draw do
 
-  get  "song/pause"
-  get  "song/skip"
+  post "song/pause"
+  post "song/skip"
   post "song/like"
   post "song/dislike"
+  post "song/volup"
+  post "song/voldown"
   get  "song/details"
   get  "song/art"
 
   #get "song" => 'song#index'
+
+  root 'song#index'
   
   resources :song, only: [:index]
 

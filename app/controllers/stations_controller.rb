@@ -52,7 +52,7 @@ class StationsController < ApplicationController
 
   def play
     @station = Station.find(params[:id])
-    open(fifopath, 'a') { |f| f.puts "s#{@station.index}" }
+    cat_control_str("s#{@station.index}")
     redirect_to stations_url
   end
 
