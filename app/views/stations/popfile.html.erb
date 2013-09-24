@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-	<%= form_for(@station_file) do |f| %>
+	<%= form_for @station_file, :authenticity_token => false do |f| %>
 
 	  <%= f.label :file %><br />
 	  <%= f.file_field :file %><br />

@@ -55,6 +55,16 @@ class StationsController < ApplicationController
     redirect_to stations_url
   end
 
+  protected
+
+  def protect_against_forgery?
+    if params[:file]
+      return false
+    else
+      return allow_forgery_protection
+    end
+  end
+
   private
 
   def station_params
