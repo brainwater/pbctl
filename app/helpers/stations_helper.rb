@@ -37,7 +37,7 @@ module StationsHelper
         newsong.rating = block[/rating=([0-9]+)/,1]
       end
     end
-    if !newsong.title.empty? && ( newsong.title != lastsong.title || newsong.artist != lastsong.artist || newsong.album != lastsong.album )
+    if !lastsong || ( !newsong.title.empty? && ( newsong.title != lastsong.title || newsong.artist != lastsong.artist || newsong.album != lastsong.album ) )
       newsong.save
     else
       lastsong.update_attributes(rating: newsong.rating)
