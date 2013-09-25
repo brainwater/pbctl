@@ -4,9 +4,29 @@ Install pianobar
 
 Put desired pianobar config at ~/.config/pianobar/pbctl_config
 do not include fifo path or eventcmd
-PbCtl will automatically create a config file at ~/.config/pianobar/config
-that includes the contents of pbctl_config and the necessary fifo path and eventcommand
-that pbctl requires to function
+PbCtl will automatically create a config file at ~/.config/pianobar/config that includes the contents of pbctl_config and the necessary fifo path and eventcommand that pbctl requires to function
+
+Installing onto raspberry pi with arch linux
+
+install RVM (see https://wiki.archlinux.org/index.php/RVM)
+	install git, curl, and sudo
+	run 'curl -L get.rvm.io | bash -s stable'
+	add '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' to your ~/.bashrc file
+	run 'exec bash'
+install sudo and add your user to the sudoers file (at least while you are installing ruby)
+	instead of installing sudo, you may be able to use 'rvm notes' and 'rvm requirements' to see what you need to install
+run 'rvm install ruby'
+	This will take a *very* long time (over 2 hours) on the raspberry pi since it has to compile ruby
+from the pbctl directory, run 'bundle install' and 'bundle update'
+install nodejs
+currently you may need to comment out the Station.delete_all line from config/initializers/start_pianobar.rb
+from the pbctl directory, run 'bundle exec rake db:reset' and 'bundle exec rake db:migrate'
+run 'rails server' and you're up and running
+
+
+Note:
+
+It may not work if you put it on a filesystem path that has whitespace in it
 
 Bugs:
 Currently this only works on port 3000 since the eventcommand script
@@ -33,12 +53,11 @@ Allow programmatic update of status and stations
 
 Reverse order of songs in song index
 
-TODO:
-
-
 Put onto raspberry pi
 	Add info in readme about what needs to be installed on the raspberry pi
 	(for arch linux installation, and for raspbian installation)
+
+TODO:
 	
 Add unit tests
 
