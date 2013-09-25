@@ -14,6 +14,10 @@ is hardcoded to submit to localhost:3000/popfile
 
 When clicking any action on the header bar, it will redirect to the song list
 
+
+Icons were obtained from http://openiconlibrary.sourceforge.net/downloads.html some of the tango icons that are under
+the public domain are in use in this application.
+
 Done:
 
 Add header
