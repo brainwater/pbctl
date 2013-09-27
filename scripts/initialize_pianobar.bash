@@ -19,4 +19,4 @@ cat "${configaddpath}" >> "${configpath}"
 
 
 
-{ sleep 5 && pianobar > /tmp/pbctl_pianobar_output & } &
+{ sleep 5 && PATH=$PATH:/usr/local/bin pianobar > /tmp/pbctl_pianobar_output & } &
