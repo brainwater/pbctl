@@ -1,11 +1,15 @@
 Pbctl::Application.routes.draw do
 
+  post "song/togglepause"
   post "song/pause"
+  post "song/start"
   post "song/skip"
   post "song/like"
   post "song/dislike"
   post "song/volup"
   post "song/voldown"
+  post "song/tired"
+  post "song/bookmarksong"
   get  "song/details"
   get  "song/art"
 

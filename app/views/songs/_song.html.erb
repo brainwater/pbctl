@@ -1,3 +1,7 @@
 <%= image_tag( song.art, :alt => "Album Art", :size => "36x36" ) %>
 <%= link_to "#{song.title} on #{song.album} by #{song.artist}", song.detail%>
+<% if ( song.station != nil ) && !song.station.empty? %>
+  on station:
+  <%= link_to " #{song.station}", play_url(Station.find_by_name(song.station)), method: "post" %>
+<% end %>
 <br />

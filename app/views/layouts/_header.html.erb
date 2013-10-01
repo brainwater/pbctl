@@ -1,17 +1,25 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-	  <%= link_to( image_tag( Song.last.art, :alt => "Album Art", :size => "36x36" ), song_art_url) %>
-	  <%= link_to "#{Song.last.title} by #{Song.last.artist} on #{Song.last.album}", Song.last.detail %>
-	  <%= if Song.last.rating == 1
-		  "<3"
-		  end %>
+	  <% cursong = Song.last %>
+	  <%= link_to( image_tag( cursong.art, :alt => "Album Art", :size => "36x36" ), song_art_url) %>
+	  <%= link_to "#{cursong.title} by #{cursong.artist} on #{cursong.album}", cursong.detail %>
+	  <% if nil != cursong.station && !cursong.station.empty? %>
+	    Station:
+	    <%= link_to "#{cursong.station}", play_url(Station.find_by_name(cursong.station)) %>
+	  <% end %>
+	  <% if cursong.rating == 1 %>
+		  <3
+	  <% end %>
+	  <br />
         <ul class="nav pull-right">
+          <li><%= link_to image_tag("media-playback-start-5.png", alt: "Start"), song_start_url, method: "post" %></li>
           <li><%= link_to image_tag("media-playback-pause-5.png", alt: "Pause"), song_pause_url, method: "post" %></li>
           <li><%= link_to image_tag("media-skip-forward-5.png", alt: "Skip"), song_skip_url, method: "post" %></li>
           <li><%= link_to image_tag("audio-volume-low-2.png", alt: "Lower Volume"), song_voldown_url, method: "post" %></li>
           <li><%= link_to image_tag("audio-volume-high-2.png", alt: "Raise Volume"), song_volup_url, method: "post" %></li>
           <li><%= link_to image_tag("face-smile-3.png", alt: "Like"), song_like_url, method: "post" %></li>
+          <li><%= link_to image_tag("face-plain-2.png", alt: "Tired of Track"), song_like_url, method: "post" %></li>
           <li><%= link_to image_tag("face-sad-3.png", alt: "Dislike"), song_dislike_url, method: "post" %></li>
           <li><%= link_to image_tag("format-justify-fill-5.png", alt: "Stations"), stations_url %></li>
         </ul>

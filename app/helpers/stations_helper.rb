@@ -35,6 +35,9 @@ module StationsHelper
       elsif block.match('rating=[0-9]+')
         # Rating
         newsong.rating = block[/rating=([0-9]+)/,1]
+      elsif block.match('stationName=.+')
+        # Current station
+        newsong.station = block[/stationName=(.+)/,1]
       end
     end
     if !lastsong || ( !newsong.title.empty? && ( newsong.title != lastsong.title || newsong.artist != lastsong.artist || newsong.album != lastsong.album ) )
