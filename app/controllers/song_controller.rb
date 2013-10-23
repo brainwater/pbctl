@@ -46,12 +46,12 @@ class SongController < ApplicationController
   end
 
   def volup
-    cat_control_str(')')
+    cat_control_str(')))')
     after_action
   end
   
   def voldown
-    cat_control_str('(')
+    cat_control_str('(((')
     after_action
   end
 
