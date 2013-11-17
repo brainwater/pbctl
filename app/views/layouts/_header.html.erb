@@ -5,12 +5,12 @@
 	  <div id="currentsong">
 		<%= link_to( image_tag( cursong.art, :alt => "Album Art", :size => "36x36", :id => "cursongart"), song_art_url, :id => "cursongarturl" ) %>
 		<%= link_to "#{cursong.title} by #{cursong.artist} on #{cursong.album}", cursong.detail, :id => "cursongdescription" %>
+		<% if cursong.rating == 0 %>
+		  <3
+		<% end %>
 		<% if nil != cursong.station && !cursong.station.empty? %>
 	      Station:
 	      <%= link_to "#{cursong.station}", play_url(Station.find_by_name(cursong.station)), :id => "curstation" %>
-		<% end %>
-		<% if cursong.rating == 0 %>
-		  <3
 		<% end %>
 	  </div>
 	  <br/>
