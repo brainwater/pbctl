@@ -9,14 +9,17 @@ configpath="${HOME}/.config/pianobar/config"
 configaddpath="${HOME}/.config/pianobar/pbctl_config"
 
 fifopath="/tmp/pbctl_fifo_control"
-rm "${fifopath}"
-mkfifo "${fifopath}"
-chmod a+rw "${fifopath}"
+if pidof pianobar
+then
+	echo "Pianobar already exists, exiting"
+else
+	rm "${fifopath}"
+	mkfifo "${fifopath}"
+	chmod a+rw "${fifopath}"
+	
+	echo "event_command = ${eventcommand}" > "${configpath}"
+	echo "fifo = ${fifopath}" >> "${configpath}"
+	cat "${configaddpath}" >> "${configpath}"
 
-echo "event_command = ${eventcommand}" > "${configpath}"
-echo "fifo = ${fifopath}" >> "${configpath}"
-cat "${configaddpath}" >> "${configpath}"
-
-
-
-{ sleep 5 && PATH=$PATH:/usr/local/bin pianobar > /tmp/pbctl_pianobar_output & } &
+	{ sleep 1 && PATH=$PATH:/usr/local/bin pianobar > /tmp/pbctl_pianobar_output 2> /dev/null & } &
+fi

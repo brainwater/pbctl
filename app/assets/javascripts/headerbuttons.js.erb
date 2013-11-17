@@ -9,7 +9,8 @@ $(document).ready(function () {
 			$( "#curstation" ).html( songdetails.songstation );
 			$( "#cursongart" ).attr("src", songdetails.songart);
 			$( "#cursongdescription" ).attr("href", songdetails.songdetails);
-			$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum + lovedstring);
+			$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum );
+			$( "#lovedicon" ).text( lovedstring );
 		});
 	};
 	function DoPost(url){
