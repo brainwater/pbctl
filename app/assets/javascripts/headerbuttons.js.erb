@@ -1,17 +1,27 @@
 $(document).ready(function () {
+
+	function doPoll() {
+		$.get("/song/description.json").done(function( data ) {
+			ProcessUpdate(data);
+		}).always(function() { setTimeout(doPoll, 10000); });
+	};
+
+	doPoll();
+
+	function ProcessUpdate( songdetails ) {
+		lovedstring = "";
+		if(songdetails.songrating == "1") {
+			lovedstring = " <3";
+		}
+		$( "#curstation" ).attr("href", songdetails.songstationurl);
+		$( "#curstation" ).html( songdetails.songstation );
+		$( "#cursongart" ).attr("src", songdetails.songart);
+		$( "#cursongdescription" ).attr("href", songdetails.songdetails);
+		$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum );
+		$( "#lovedicon" ).text( lovedstring );
+	};
 	function UpdateSong() {
-		$.get("/song/description.json", function( songdetails ) {
-			lovedstring = "";
-			if(songdetails.songrating == "1") {
-				lovedstring = " <3";
-			}
-			$( "#curstation" ).attr("href", songdetails.songstationurl);
-			$( "#curstation" ).html( songdetails.songstation );
-			$( "#cursongart" ).attr("src", songdetails.songart);
-			$( "#cursongdescription" ).attr("href", songdetails.songdetails);
-			$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum );
-			$( "#lovedicon" ).text( lovedstring );
-		});
+		$.get("/song/description.json", function( songdet ) { ProcessUpdate(songdet); });
 	};
 	function DoPost(url){
 		$.post(url, function( data ) {
