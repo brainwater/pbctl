@@ -4,4 +4,7 @@
   on station:
   <%= link_to " #{song.station}", play_url(Station.find_by_name(song.station)), method: "post" %>
 <% end %>
+<% if ( song.rating == 1 ) %>
+  <3
+<% end %>
 <br />
