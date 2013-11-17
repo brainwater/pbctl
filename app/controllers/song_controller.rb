@@ -61,6 +61,10 @@ class SongController < ApplicationController
     # @details = fetch_url @song.detail
   end
 
+  def description
+    @song = current_song
+  end
+
   def art
     @song = current_song
   end

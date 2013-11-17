@@ -12,6 +12,7 @@ Pbctl::Application.routes.draw do
   post "song/bookmarksong"
   get  "song/details"
   get  "song/art"
+  get  "song/description"
 
   #get "song" => 'song#index'
 

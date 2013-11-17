@@ -1,0 +1,11 @@
+{
+	"songtitle": "<%= @song.title %>",
+	"songart": "<%= @song.art %>",
+	"songarturl": "<%= song_art_url %>",
+	"songalbum": "<%= @song.album %>",
+	"songartist": "<%= @song.artist %>",
+	"songdetails": "<%= @song.detail %>",
+	"songstation": "<%= @song.station %>",
+	"songstationurl": "<%= play_url(Station.find_by_name(@song.station)) %>",
+	"songrating": "<%= @song.rating %>"
+}

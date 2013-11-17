@@ -1,0 +1,66 @@
+$(document).ready(function () {
+	function UpdateSong() {
+		$.get("/song/description.json", function( songdetails ) {
+			lovedstring = "";
+			if(songdetails.songrating == "1") {
+				lovedstring = " <3";
+			}
+			$( "#curstation" ).attr("href", songdetails.songstationurl);
+			$( "#curstation" ).html( songdetails.songstation );
+			$( "#cursongart" ).attr("src", songdetails.songart);
+			$( "#cursongdescription" ).attr("href", songdetails.songdetails);
+			$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum + lovedstring);
+		});
+	};
+	function DoPost(url){
+		$.post(url, function( data ) {
+			UpdateSong();
+		});
+	};
+	
+	$('#mediastart').click(function (event) {
+		DoPost('/song/start');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediapause').click(function (event) {
+		DoPost('/song/pause');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediaskip').click(function (event) {
+		DoPost('/song/skip');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediavoldown').click(function (event) {
+		DoPost('/song/voldown');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediavolup').click(function (event) {
+		DoPost('/song/volup');
+		event.preventDefault();
+		return false;
+	});
+	$('#medialike').click(function (event) {
+		DoPost('/song/like');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediatired').click(function (event) {
+		DoPost('/song/tired');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediadislike').click(function (event) {
+		DoPost('/song/dislike');
+		event.preventDefault();
+		return false;
+	});
+	$('#mediabookmarksong').click(function (event) {
+		DoPost('/song/bookmarksong');
+		event.preventDefault();
+		return false;
+	});
+});

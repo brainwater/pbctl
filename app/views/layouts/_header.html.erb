@@ -2,26 +2,28 @@
   <div class="navbar-inner">
     <div class="container">
 	  <% cursong = Song.last %>
-	  <%= link_to( image_tag( cursong.art, :alt => "Album Art", :size => "36x36" ), song_art_url) %>
-	  <%= link_to "#{cursong.title} by #{cursong.artist} on #{cursong.album}", cursong.detail %>
-	  <% if nil != cursong.station && !cursong.station.empty? %>
-	    Station:
-	    <%= link_to "#{cursong.station}", play_url(Station.find_by_name(cursong.station)) %>
-	  <% end %>
-	  <% if cursong.rating == 1 %>
+	  <div id="currentsong">
+		<%= link_to( image_tag( cursong.art, :alt => "Album Art", :size => "36x36", :id => "cursongart"), song_art_url, :id => "cursongarturl" ) %>
+		<%= link_to "#{cursong.title} by #{cursong.artist} on #{cursong.album}", cursong.detail, :id => "cursongdescription" %>
+		<% if nil != cursong.station && !cursong.station.empty? %>
+	      Station:
+	      <%= link_to "#{cursong.station}", play_url(Station.find_by_name(cursong.station)), :id => "curstation" %>
+		<% end %>
+		<% if cursong.rating == 0 %>
 		  <3
-	  <% end %>
+		<% end %>
+	  </div>
 	  <br/>
         <ul class="nav pull-right">
-          <li><%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start"), "", id: "mediastart", onclick: "$.post('#{song_start_url}');" %></li>
-          <li><%= link_to image_tag("media-playback-pause-5.png", title: "Pause", alt: "Pause"), "", id: "mediapause", onclick: "$.post('#{song_pause_url}');" %></li>
-          <li><%= link_to image_tag("media-skip-forward-5.png", title: "Skip", alt: "Skip"), "", id: "mediaskip", onclick: "$.post('#{song_skip_url}');" %></li>
-          <li><%= link_to image_tag("audio-volume-low-2.png", title: "Lower Volume", alt: "Lower Volume"), "", id: "mediavoldown", onclick: "$.post('#{song_voldown_url}');" %></li>
-          <li><%= link_to image_tag("audio-volume-high-2.png", title: "Raise Volume", alt: "Raise Volume"), "", id: "mediavolup", onclick: "$.post('#{song_volup_url}');" %></li>
-          <li><%= link_to image_tag("face-smile-3.png", title: "Like Song", alt: "Like Song"), "", id: "medialike", onclick: "$.post('#{song_like_url}');" %></li>
-          <li><%= link_to image_tag("face-plain-2.png", title: "Tired of Song", alt: "Tired of Song"), "", id: "mediatired", onclick: "$.post('#{song_tired_url}');" %></li>
-          <li><%= link_to image_tag("face-sad-3.png", title: "Dislike Song", alt: "Dislike Song"), "", id: "mediadislike", onclick: "$.post('#{song_dislike_url}');" %></li>
-          <li><%= link_to image_tag("bookmark-new-4.png", title: "Bookmark Song", alt: "Bookmark Song"), "", id: "mediabookmarksong", onclick: "$.post('#{song_bookmarksong_url}');" %></li>
+          <li><%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start"), "#{song_start_url}", id: "mediastart", method: "post" %></li>
+          <li><%= link_to image_tag("media-playback-pause-5.png", title: "Pause", alt: "Pause"), "#{song_pause_url}", id: "mediapause", method: "post" %></li>
+          <li><%= link_to image_tag("media-skip-forward-5.png", title: "Skip", alt: "Skip"), "#{song_skip_url}", id: "mediaskip", method: "post" %></li>
+          <li><%= link_to image_tag("audio-volume-low-2.png", title: "Lower Volume", alt: "Lower Volume"), "#{song_voldown_url}", id: "mediavoldown", method: "post" %></li>
+          <li><%= link_to image_tag("audio-volume-high-2.png", title: "Raise Volume", alt: "Raise Volume"), "#{song_volup_url}", id: "mediavolup", method: "post" %></li>
+          <li><%= link_to image_tag("face-smile-3.png", title: "Like Song", alt: "Like Song"), "#{song_like_url}", id: "medialike", method: "post" %></li>
+          <li><%= link_to image_tag("face-plain-2.png", title: "Tired of Song", alt: "Tired of Song"), "#{song_tired_url}", id: "mediatired", method: "post" %></li>
+          <li><%= link_to image_tag("face-sad-3.png", title: "Dislike Song", alt: "Dislike Song"), "#{song_dislike_url}", id: "mediadislike", method: "post" %></li>
+          <li><%= link_to image_tag("bookmark-new-4.png", title: "Bookmark Song", alt: "Bookmark Song"), "#{song_bookmarksong_url}", id: "mediabookmarksong", method: "post" %></li>
           <li><%= link_to image_tag("multimedia-player-2.png", title: "Song List", alt: "Song List"), song_index_url %></li>
           <li><%= link_to image_tag("format-justify-fill-5.png", title: "Station List", alt: "Station List"), stations_url %></li>
         </ul>
@@ -29,3 +31,35 @@
     </div>
   </div>
 </header>
+<script>
+$(document).ready(function () {
+	alert("Ready");
+	function UpdateSong() {
+		alert("Updating Song");
+		$.get(<%= song_description_url %>.json, function( data ) {
+			var songdetails = $.parseJSON(data);
+			lovedstring = "";
+			if(songdetails.songrating == "1") {
+				lovedstring = " <3";
+			}
+			$( "#curstation" ).attr("href", songdetails.songstationurl);
+			$( "#curstation" ).html( songdetails.songstation );
+			$( "#cursongart" ).attr("src", songdetails.songart);
+			$( "#cursongdescription" ).attr("href", songdetails.songdetails);
+			$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum + lovedstring);
+		});
+	};
+	function DoPost(url){
+		alert("Hello");
+		$.post(url, function( data ) {
+			UpdateSong();
+		});
+	};*/
+	
+	$('#mediapause').click(function (event) {
+		alert("It works");
+		DoPost(<%= "'#{song_start_url}'" %>);
+		event.preventDefault();
+	});
+});
+</script>
