@@ -38,6 +38,8 @@ When clicking any action on the header bar, it will redirect to the song list
 Icons were obtained from http://openiconlibrary.sourceforge.net/downloads.html some of the tango icons that are under
 the public domain are in use in this application.
 
+Relies on the Pianobar application for playback and control of pandora (http://6xq.net/projects/pianobar/)
+
 Done:
 
 Add header
