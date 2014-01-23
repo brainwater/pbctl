@@ -11,6 +11,8 @@ class SongController < ApplicationController
   end
 
   def start
+    # Fifo path: /tmp/pbctl_fifo_control
+    pianobarinit = system("scripts/initialize_pianobar.bash \"#{pwd}\"")
     cat_control_str('P')
     after_action
   end
