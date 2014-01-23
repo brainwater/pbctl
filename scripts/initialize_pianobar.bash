@@ -11,8 +11,7 @@ configaddpath="${HOME}/.config/pianobar/pbctl_config"
 fifopath="/tmp/pbctl_fifo_control"
 if pidof pianobar
 then
-	#Do nothing, this will be called every time play is pressed
-	#echo "Pianobar already exists, exiting"
+	echo "Pianobar already exists, doing nothing"
 else
 	rm "${fifopath}"
 	mkfifo "${fifopath}"
