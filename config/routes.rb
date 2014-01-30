@@ -1,5 +1,6 @@
 Pbctl::Application.routes.draw do
 
+  get "users/new"
   post "song/togglepause"
   post "song/pause"
   post "song/start"
