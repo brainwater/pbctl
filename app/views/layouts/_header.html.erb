@@ -1,5 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
+	<% if Song.last %>
     <div class="container">
 	  <% cursong = Song.last %>
 	  <span id="currentsong">
@@ -31,9 +32,11 @@
         </ul>
       </nav>
     </div>
+	<% end %>
   </div>
 </header>
 <script>
+<% if Song.last %>
 $(document).ready(function () {
 	alert("Ready");
 	function UpdateSong() {
@@ -64,4 +67,5 @@ $(document).ready(function () {
 		event.preventDefault();
 	});
 });
+<% end %>
 </script>

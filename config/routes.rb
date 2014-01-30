@@ -33,6 +33,10 @@ Pbctl::Application.routes.draw do
 
   post 'stations/:id/play' => 'stations#play', as: :play
 
+  resources :users
+
+  match '/signup', to: 'users#new', via: 'get'
+
   #match 'stations/:id/play', to: 'stations#index', via: 'get'
 
   #get '/stations/populate'
