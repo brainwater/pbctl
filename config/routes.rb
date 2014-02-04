@@ -34,8 +34,11 @@ Pbctl::Application.routes.draw do
   post 'stations/:id/play' => 'stations#play', as: :play
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
   #match 'stations/:id/play', to: 'stations#index', via: 'get'
 
