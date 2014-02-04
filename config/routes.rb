@@ -1,5 +1,6 @@
 Pbctl::Application.routes.draw do
 
+  get "users/new"
   post "song/togglepause"
   post "song/pause"
   post "song/start"
@@ -31,6 +32,13 @@ Pbctl::Application.routes.draw do
   resources :stations
 
   post 'stations/:id/play' => 'stations#play', as: :play
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
   #match 'stations/:id/play', to: 'stations#index', via: 'get'
 

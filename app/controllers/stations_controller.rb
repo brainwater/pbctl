@@ -1,6 +1,7 @@
 class StationsController < ApplicationController
   include StationsHelper
   include ApplicationHelper
+  before_action :authenticated_redirect
 
   def index
     @stations = Station.paginate(page: params[:page])

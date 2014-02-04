@@ -1,5 +1,6 @@
 class SongController < ApplicationController
   include StationsHelper
+  before_action :authenticated_redirect
 
   def index
     @song = Song.paginate(page: params[:page], :order => 'created_at DESC')
