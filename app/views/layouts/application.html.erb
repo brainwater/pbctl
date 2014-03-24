@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
 	<title>Pianobar Control Server<%= yield(:title) %></title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="screen" rel="stylesheet">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<%= csrf_meta_tags %>
   </head>
-  <body class="container">
+  <body style>
 	<%= render 'layouts/header' %>
-	<%= yield %>
-	<%= debug(params) if Rails.env.development? %>
-
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-3 col-md-3 sidebar">
+		  <%= render 'layouts/left_column' %>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-3 main">
+		  <%= yield %>
+		  <%= debug(params) if Rails.env.development? %>
+		</div>
+	  </div>
+	</div>
   </body>
 </html>

@@ -29,49 +29,55 @@ $(document).ready(function () {
 		});
 	};
 	
-	$('#mediastart').click(function (event) {
+	$('#btnstart').click(function (event) {
 		DoPost('/song/start');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediapause').click(function (event) {
+	$('#btnpause').click(function (event) {
 		DoPost('/song/pause');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediaskip').click(function (event) {
+	$('#btnskip').click(function (event) {
 		DoPost('/song/skip');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediavoldown').click(function (event) {
+	$('#btnvoldown').click(function (event) {
 		DoPost('/song/voldown');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediavolup').click(function (event) {
+	$('#btnvolup').click(function (event) {
 		DoPost('/song/volup');
 		event.preventDefault();
 		return false;
 	});
-	$('#medialike').click(function (event) {
+	$('#btnlike').click(function (event) {
 		DoPost('/song/like');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediatired').click(function (event) {
+	$('#btntired').click(function (event) {
 		DoPost('/song/tired');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediadislike').click(function (event) {
+	$('#btndislike').click(function (event) {
 		DoPost('/song/dislike');
 		event.preventDefault();
 		return false;
 	});
-	$('#mediabookmarksong').click(function (event) {
+	$('#btnbookmarksong').click(function (event) {
 		DoPost('/song/bookmarksong');
 		event.preventDefault();
 		return false;
+	});
+	$('#btnsonglist').click(function (event) {
+		window.location.href = "/stations";
+	});
+	$('#btnbookmarksong').click(function (event) {
+		window.location.href = "/song"
 	});
 });

@@ -23,6 +23,25 @@ body {
   padding-top: 110px;
 }
 
+#container_div {
+	padding-left: 200px;
+}
+
+#container_div .column {
+	position: relative;
+	float: left;
+}
+
+#center_column {
+	width: 100%;
+}
+
+#left_column {
+	width: 200px;
+	right: 200px;
+	margin-left: -100%;
+}
+
 section {
   overflow: auto;
 }

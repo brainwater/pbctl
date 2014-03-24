@@ -1,0 +1,48 @@
+<% if authenticated? %>
+<% if Song.last %>
+<ul class="nav nav-sidebar">
+  <li><%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start") + "Play", "#{song_start_url}", id: "btnstart", method: "post" %></li>
+  <li><%= link_to image_tag("media-playback-pause-5.png", title: "Pause", alt: "Pause") + "Pause", "#{song_pause_url}", id: "btnpause", method: "post" %></li>
+  <li><%= link_to image_tag("media-skip-forward-5.png", title: "Skip", alt: "Skip") + "Skip", "#{song_skip_url}", id: "btnskip", method: "post" %></li>
+  <li><%= link_to image_tag("audio-volume-high-2.png", title: "Raise Volume", alt: "Raise Volume") + "Raise Volume", "#{song_volup_url}", id: "btnvolup", method: "post" %></li>
+  <li><%= link_to image_tag("audio-volume-low-2.png", title: "Lower Volume", alt: "Lower Volume") + "Lower Volume", "#{song_voldown_url}", id: "btnvoldown", method: "post" %></li>
+  <li><%= link_to image_tag("face-smile-3.png", title: "Like Song", alt: "Like Song") + "Like Song", "#{song_like_url}", id: "btnlike", method: "post" %></li>
+  <li><%= link_to image_tag("face-plain-2.png", title: "Tired of Song", alt: "Tired of Song") + "Tired of Song", "#{song_tired_url}", id: "btntired", method: "post" %></li>
+  <li><%= link_to image_tag("face-sad-3.png", title: "Dislike Song", alt: "Dislike Song") + "Dislike Song", "#{song_dislike_url}", id: "btndislike", method: "post" %></li>
+  <li><%= link_to image_tag("bookmark-new-4.png", title: "Bookmark Song", alt: "Bookmark Song") + "Bookmark Song", "#{song_bookmarksong_url}", id: "btnbookmark", method: "post" %></li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li><%= link_to image_tag("multimedia-player-2.png", title: "Song List", alt: "Song List") + "Song List", song_index_url %></li>
+  <li><%= link_to image_tag("format-justify-fill-5.png", title: "Station List", alt: "Station List") + "Station List", stations_url %></li>
+</ul>
+<!--
+  <li class="active">
+	<%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start") + "Start", "#{song_start_url}", id: "btnstart", method: "post" %>
+  </li>
+
+id="btnstart" class="btn btn-default nav nav-sidebar"><%= image_tag("media-playback-start-5.png", title: "Start", alt: "Start") %></button>
+  <button type="button" id="btnpause" class="btn btn-default nav nav-sidebar"><%= image_tag("media-playback-pause-5.png", title: "Pause", alt: "Pause") %></button>
+  <button type="button" id="btnskip" class="btn btn-default nav nav-sidebar"><%= image_tag("media-skip-forward-5.png", title: "Skip", alt: "Skip") %></button>
+  <button type="button" id="btnvolup" class="btn btn-default nav nav-sidebar"><%= image_tag("audio-volume-high-2.png", title: "Raise Volume", alt: "Raise Volume") %></button>
+  <button type="button" id="btnvoldown" class="btn btn-default nav nav-sidebar"><%= image_tag("audio-volume-low-2.png", title: "Lower Volume", alt: "Lower Volume") %></button>
+  <button type="button" id="btnlike" class="btn btn-default nav nav-sidebar"><%= image_tag("face-smile-3.png", title: "Like Song", alt: "Like Song") %></button>
+  <button type="button" id="btntired" class="btn btn-default nav nav-sidebar"><%= image_tag("face-plain-2.png", title: "Tired of Song", alt: "Tired of Song") %></button>
+  <button type="button" id="btndislike" class="btn btn-default nav nav-sidebar"><%= image_tag("face-sad-3.png", title: "Dislike Song", alt: "Dislike Song") %></button>
+  <button type="button" id="btnbookmark" class="btn btn-default nav nav-sidebar"><%= image_tag("bookmark-new-4.png", title: "Bookmark Song", alt: "Bookmark Song") %></button>
+  <button type="button" id="btnsonglist" class="btn btn-default nav nav-sidebar"><%= image_tag("multimedia-player-2.png", title: "Song List", alt: "Song List") %></button>
+  <button type="button" id="btnstationlist" class="btn btn-default nav nav-sidebar"><%= image_tag("format-justify-fill-5.png", title: "Station List", alt: "Station List") %></button>-->
+<!--<ul>
+  <li class="active"><%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start"), "#{song_start_url}", id: "mediastart", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("media-playback-pause-5.png", title: "Pause", alt: "Pause"), "#{song_pause_url}", id: "mediapause", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("media-skip-forward-5.png", title: "Skip", alt: "Skip"), "#{song_skip_url}", id: "mediaskip", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("audio-volume-low-2.png", title: "Lower Volume", alt: "Lower Volume"), "#{song_voldown_url}", id: "mediavoldown", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("audio-volume-high-2.png", title: "Raise Volume", alt: "Raise Volume"), "#{song_volup_url}", id: "mediavolup", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("face-smile-3.png", title: "Like Song", alt: "Like Song"), "#{song_like_url}", id: "medialike", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("face-plain-2.png", title: "Tired of Song", alt: "Tired of Song"), "#{song_tired_url}", id: "mediatired", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("face-sad-3.png", title: "Dislike Song", alt: "Dislike Song"), "#{song_dislike_url}", id: "mediadislike", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("bookmark-new-4.png", title: "Bookmark Song", alt: "Bookmark Song"), "#{song_bookmarksong_url}", id: "mediabookmarksong", method: "post" %></li>
+  <li class="active"><%= link_to image_tag("multimedia-player-2.png", title: "Song List", alt: "Song List"), song_index_url %></li>
+  <li class="active"><%= link_to image_tag("format-justify-fill-5.png", title: "Station List", alt: "Station List"), stations_url %></li>
+</ul>-->
+<% end %>
+<% end %>
