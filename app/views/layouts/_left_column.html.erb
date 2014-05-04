@@ -1,7 +1,38 @@
 <% if authenticated? %>
 <% if Song.last %>
-<ul class="nav nav-sidebar">
-  <li><%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start") + "Play", "#{song_start_url}", id: "btnstart", method: "post" %></li>
+<!-- Full Sidebar -->
+<div class="col-sm-3 col-md-2 sidebar-full">
+  <ul class="nav nav-sidebar">
+	<li><a href="#" id="btnstart"><span class="glyphicon glyphicon-play"/> Play</a></li>
+	<li><a href="#" id="btnpause"><span class="glyphicon glyphicon-pause"/> Pause </a></li>
+	<li><a href="#" id="btnskip"><span class="glyphicon glyphicon-fast-forward"/> Skip</a></li>
+	<li><a href="#" id="btnvolup"><span class="glyphicon glyphicon-volume-up"/> Volume Up</a></li>
+	<li><a href="#" id="btnvoldown"><span class="glyphicon glyphicon-volume-down"/> Volume Down</a></li>
+	<li><a href="#" id="btnlike"><span class="glyphicon glyphicon-thumbs-up"/> Like</a></li>
+	<li><a href="#" id="btntired"><span class="glyphicon glyphicon-eye-close"/> Tired</a></li>
+	<li><a href="#" id="btndislike"><span class="glyphicon glyphicon-thumbs-down"/> Dislike</a></li>
+	<li><a href="#" id="btnbookmark"><span class="glyphicon glyphicon-bookmark"/> Bookmark</a></li>
+	<li><a href="<%= song_index_url %>"><span class="glyphicon glyphicon-music"/> Played Songs</a></li>
+	<li><a href="<%= stations_url %>"><span class="glyphicon glyphicon-signal"/> Stations</a></li>
+  </ul>
+</div>
+<!-- Compact/Small Sidebar -->
+<div class="col-xs-1 sidebar-small">
+  <ul class="nav nav-sidebar">
+	<li><a href="#" id="btnstart"><span class="glyphicon glyphicon-play"/></a></li>
+	<li><a href="#" id="btnpause"><span class="glyphicon glyphicon-pause"/></a></li>
+	<li><a href="#" id="btnskip"><span class="glyphicon glyphicon-fast-forward"/></a></li>
+	<li><a href="#" id="btnvolup"><span class="glyphicon glyphicon-volume-up"/></a></li>
+	<li><a href="#" id="btnvoldown"><span class="glyphicon glyphicon-volume-down"/></a></li>
+	<li><a href="#" id="btnlike"><span class="glyphicon glyphicon-thumbs-up"/></a></li>
+	<li><a href="#" id="btntired"><span class="glyphicon glyphicon-eye-close"/></a></li>
+	<li><a href="#" id="btndislike"><span class="glyphicon glyphicon-thumbs-down"/></a></li>
+	<li><a href="#" id="btnbookmark"><span class="glyphicon glyphicon-bookmark"/></a></li>
+	<li><a href="<%= song_index_url %>"><span class="glyphicon glyphicon-music"/></a></li>
+	<li><a href="<%= stations_url %>"><span class="glyphicon glyphicon-signal"/></a></li>
+  </ul>
+</div>
+<!--  <li><%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start") + "Play", "#{song_start_url}", id: "btnstart", method: "post" %></li>
   <li><%= link_to image_tag("media-playback-pause-5.png", title: "Pause", alt: "Pause") + "Pause", "#{song_pause_url}", id: "btnpause", method: "post" %></li>
   <li><%= link_to image_tag("media-skip-forward-5.png", title: "Skip", alt: "Skip") + "Skip", "#{song_skip_url}", id: "btnskip", method: "post" %></li>
   <li><%= link_to image_tag("audio-volume-high-2.png", title: "Raise Volume", alt: "Raise Volume") + "Raise Volume", "#{song_volup_url}", id: "btnvolup", method: "post" %></li>
@@ -15,6 +46,7 @@
   <li><%= link_to image_tag("multimedia-player-2.png", title: "Song List", alt: "Song List") + "Song List", song_index_url %></li>
   <li><%= link_to image_tag("format-justify-fill-5.png", title: "Station List", alt: "Station List") + "Station List", stations_url %></li>
 </ul>
+-->
 <!--
   <li class="active">
 	<%= link_to image_tag("media-playback-start-5.png", title: "Start", alt: "Start") + "Start", "#{song_start_url}", id: "btnstart", method: "post" %>
