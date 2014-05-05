@@ -3,15 +3,15 @@
 <!-- Full Sidebar -->
 <div class="col-sm-3 col-md-2 sidebar-full">
   <ul class="nav nav-sidebar">
-	<li><a href="#" id="btnstart"><span class="glyphicon glyphicon-play"/> Play</a></li>
-	<li><a href="#" id="btnpause"><span class="glyphicon glyphicon-pause"/> Pause </a></li>
-	<li><a href="#" id="btnskip"><span class="glyphicon glyphicon-fast-forward"/> Skip</a></li>
-	<li><a href="#" id="btnvolup"><span class="glyphicon glyphicon-volume-up"/> Volume Up</a></li>
-	<li><a href="#" id="btnvoldown"><span class="glyphicon glyphicon-volume-down"/> Volume Down</a></li>
-	<li><a href="#" id="btnlike"><span class="glyphicon glyphicon-thumbs-up"/> Like</a></li>
-	<li><a href="#" id="btntired"><span class="glyphicon glyphicon-eye-close"/> Tired</a></li>
-	<li><a href="#" id="btndislike"><span class="glyphicon glyphicon-thumbs-down"/> Dislike</a></li>
-	<li><a href="#" id="btnbookmark"><span class="glyphicon glyphicon-bookmark"/> Bookmark</a></li>
+	<li><a data-method="post" href='<%= "#{song_start_url}" %>' id="btnstart"><span class="glyphicon glyphicon-play"/> Play</a></li>
+	<li><a data-method="post" href='<%= "#{song_pause_url}" %>' id="btnpause"><span class="glyphicon glyphicon-pause"/> Pause </a></li>
+	<li><a data-method="post" href='<%= "#{song_skip_url}" %>' id="btnskip"><span class="glyphicon glyphicon-fast-forward"/> Skip</a></li>
+	<li><a data-method="post" href='<%= "#{song_volup_url}" %>' id="btnvolup"><span class="glyphicon glyphicon-volume-up"/> Volume Up</a></li>
+	<li><a data-method="post" href='<%= "#{song_voldown_url}" %>' id="btnvoldown"><span class="glyphicon glyphicon-volume-down"/> Volume Down</a></li>
+	<li><a data-method="post" href='<%= "#{song_like_url}" %>' id="btnlike"><span class="glyphicon glyphicon-thumbs-up"/> Like</a></li>
+	<li><a data-method="post" href='<%= "#{song_tired_url}" %>' id="btntired"><span class="glyphicon glyphicon-eye-close"/> Tired</a></li>
+	<li><a data-method="post" href='<%= "#{song_dislike_url}" %>' id="btndislike"><span class="glyphicon glyphicon-thumbs-down"/> Dislike</a></li>
+	<li><a data-method="post" href='<%= "#{song_bookmarksong_url}" %>' id="btnbookmark"><span class="glyphicon glyphicon-bookmark"/> Bookmark</a></li>
 	<li><a href="<%= song_index_url %>"><span class="glyphicon glyphicon-music"/> Played Songs</a></li>
 	<li><a href="<%= stations_url %>"><span class="glyphicon glyphicon-signal"/> Stations</a></li>
   </ul>
@@ -19,15 +19,15 @@
 <!-- Compact/Small Sidebar -->
 <div class="col-xs-1 sidebar-small">
   <ul class="nav nav-sidebar">
-	<li><a href="#" id="btnstart"><span class="glyphicon glyphicon-play"/></a></li>
-	<li><a href="#" id="btnpause"><span class="glyphicon glyphicon-pause"/></a></li>
-	<li><a href="#" id="btnskip"><span class="glyphicon glyphicon-fast-forward"/></a></li>
-	<li><a href="#" id="btnvolup"><span class="glyphicon glyphicon-volume-up"/></a></li>
-	<li><a href="#" id="btnvoldown"><span class="glyphicon glyphicon-volume-down"/></a></li>
-	<li><a href="#" id="btnlike"><span class="glyphicon glyphicon-thumbs-up"/></a></li>
-	<li><a href="#" id="btntired"><span class="glyphicon glyphicon-eye-close"/></a></li>
-	<li><a href="#" id="btndislike"><span class="glyphicon glyphicon-thumbs-down"/></a></li>
-	<li><a href="#" id="btnbookmark"><span class="glyphicon glyphicon-bookmark"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_start_url}" %>' id="btnstart"><span class="glyphicon glyphicon-play"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_pause_url}" %>' id="btnpause"><span class="glyphicon glyphicon-pause"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_skip_url}" %>' id="btnskip"><span class="glyphicon glyphicon-fast-forward"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_volup_url}" %>' id="btnvolup"><span class="glyphicon glyphicon-volume-up"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_voldown_url}" %>' id="btnvoldown"><span class="glyphicon glyphicon-volume-down"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_like_url}" %>' id="btnlike"><span class="glyphicon glyphicon-thumbs-up"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_tired_url}" %>' id="btntired"><span class="glyphicon glyphicon-eye-close"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_dislike_url}" %>' id="btndislike"><span class="glyphicon glyphicon-thumbs-down"/></a></li>
+	<li><a data-method="post" href='<%= "#{song_bookmarksong_url}" %>' id="btnbookmark"><span class="glyphicon glyphicon-bookmark"/></a></li>
 	<li><a href="<%= song_index_url %>"><span class="glyphicon glyphicon-music"/></a></li>
 	<li><a href="<%= stations_url %>"><span class="glyphicon glyphicon-signal"/></a></li>
   </ul>
