@@ -11,14 +11,22 @@ $(document).ready(function () {
 	function ProcessUpdate( songdetails ) {
 		lovedstring = "";
 		if(songdetails.songrating == "1") {
-			lovedstring = " <3";
+			lovedstring = "";
+		}
+		else {
+			lovedstring="display:none;"
 		}
 		$( "#curstation" ).attr("href", songdetails.songstationurl);
 		$( "#curstation" ).html( songdetails.songstation );
 		$( "#cursongart" ).attr("src", songdetails.songart);
 		$( "#cursongdescription" ).attr("href", songdetails.songdetails);
 		$( "#cursongdescription" ).html( songdetails.songtitle + " by " + songdetails.songartist + " on " + songdetails.songalbum );
-		$( "#lovedicon" ).text( lovedstring );
+		if (songdetails.songrating == "1") {
+		    $( "#lovedicon" ).show();
+		}
+		else {
+		    $( "#lovedicon" ).hide();
+		}
 	};
 	function UpdateSong() {
 		$.get("/song/description.json", function( songdet ) { ProcessUpdate(songdet); });

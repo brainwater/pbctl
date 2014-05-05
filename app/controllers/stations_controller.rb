@@ -4,7 +4,7 @@ class StationsController < ApplicationController
   before_action :authenticated_redirect
 
   def index
-    @stations = Station.paginate(page: params[:page])
+    @stations = Station.all
   end
 
   def show
