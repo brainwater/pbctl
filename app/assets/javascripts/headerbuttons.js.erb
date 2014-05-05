@@ -3,7 +3,7 @@ $(document).ready(function () {
 	function doPoll() {
 		$.get("/song/description.json").done(function( data ) {
 			ProcessUpdate(data);
-		}).always(function() { setTimeout(doPoll, 10000); });
+		}).always(function() { setTimeout(doPoll, 3000); });
 	};
 
 	doPoll();
