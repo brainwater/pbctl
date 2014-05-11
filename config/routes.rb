@@ -1,5 +1,6 @@
 Pbctl::Application.routes.draw do
 
+  post "populate/update"
   get "users/new"
   post "song/togglepause"
   post "song/pause"
@@ -21,13 +22,15 @@ Pbctl::Application.routes.draw do
   
   resources :song, only: [:index]
 
-  get '/populate' => 'stations#populate'
+# Used for development and debugging purposes
 
-  post '/populate' => 'stations#fill'
+# get '/populate' => 'stations#populate'
+# post '/populate' => 'stations#fill'
 
-  get '/popfile' => 'stations#popfile'
+# Old style of pushing the pianobar information file to the server
 
-  post '/popfile' => 'stations#fillfile'
+#  get '/popfile' => 'stations#popfile'
+#  post '/popfile' => 'stations#fillfile'
 
   resources :stations
 
