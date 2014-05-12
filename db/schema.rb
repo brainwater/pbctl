@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131000443) do
+ActiveRecord::Schema.define(version: 20140512174648) do
+
+  create_table "sessions", force: true do |t|
+    t.string   "remember_token"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["remember_token"], name: "index_sessions_on_remember_token"
 
   create_table "songs", force: true do |t|
     t.string   "title"
