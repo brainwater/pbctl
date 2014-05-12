@@ -22,6 +22,7 @@ module SessionsHelper
     remember_token = Session.encrypt(cookies[:remember_token])
     current_user.update_attribute(:remember_token,
                                   User.encrypt(User.new_remember_token))
+    current_session.destroy
     cookies.delete(:remember_token)
   end
 
